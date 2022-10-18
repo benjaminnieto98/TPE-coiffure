@@ -28,7 +28,7 @@ class CategoryModel
 
     function addCategory($nombre)
     {
-        $sentence = $this->db->prepare("INSERT INTO categorias(nombre) VALUES (?)");
+        $sentence = $this->db->prepare("INSERT INTO categorias (nombre) VALUES (?)");
         $sentence->execute(array($nombre));
     }
 

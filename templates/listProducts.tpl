@@ -1,37 +1,6 @@
 {include file="header.tpl" title="Productos"}
 
 <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8 py-4 bg-white">
-        <h1>Listado de productos</h1>
-        <table class="table table-dark table-striped">
-            <thead>
-                <tr>
-                    <th>Marca</th>
-                    <th>Modelo</th>
-                    <th>Precio</th>
-                    <th>Detalle</th>
-                    {if $userRol == 2}
-                        <th>Editar</th>
-                        <th>Borrar</th>
-                    {/if}
-                </tr>
-            </thead>
-            <tbody>
-                {foreach from=$products item=$product}
-                    <tr>
-                        <th>{$product->precio}</th>
-                        <th>{$product->modelo}</th>
-                        <th>{$product->precio}</th>
-                        <th><a href="product/{$product->id}">+</a></th>
-                        {if $userRol == 2}
-                            <th><a href="editProduct/{$product->id}">+</a></th>
-                            <th><a href="deleteProduct/{$product->id}">x</a></th>
-                        {/if}
-                    </tr>
-                {/foreach}
-            </tbody>
-        </table>
-    </div>
     {if $userRol == 2}
         <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 py-4 bg-white">
             <h1>Añadir producto</h1>
@@ -62,6 +31,37 @@
             </form>
         </div>
     {/if}
+    <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8 py-4 bg-white">
+        <h1>Listado de productos</h1>
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Precio</th>
+                    <th>Detalle</th>
+                    {if $userRol == 2}
+                        <th>Editar</th>
+                        <th>Borrar</th>
+                    {/if}
+                </tr>
+            </thead>
+            <tbody>
+                {foreach from=$products item=$product}
+                    <tr>
+                        <td>{$product->marca}</td>
+                        <td>{$product->modelo}</td>
+                        <td>${$product->precio}</td>
+                        <td><a href="product/{$product->id_producto}">+</a></td>
+                        {if $userRol == 2}
+                            <td><a href="editProduct/{$product->id_producto}">+</a></td>
+                            <td><a href="deleteProduct/{$product->id_producto}">x</a></td>
+                        {/if}
+                    </tr>
+                {/foreach}
+            </tbody>
+        </table>
+    </div>
 </div>
 
 {include file="footer.tpl"}

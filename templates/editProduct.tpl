@@ -1,6 +1,6 @@
 {include file="header.tpl" title='Editar producto'}
 <h1>Editar Producto</h1>
-<form action="updateProduct/{$product->id}" method="POST">
+<form action="updateProduct/{$product->id_producto}" method="POST">
     <input name="marca" value="{$product->marca}">
     <input name="modelo" value="{$product->modelo}">
     <div class="input-group">

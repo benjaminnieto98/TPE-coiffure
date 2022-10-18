@@ -17,15 +17,10 @@ class ProductController
         $this->authHelper = new AuthHelper();
     }
 
+
     function showProducts($categories)
     {
         $products = $this->model->getProducts();
-        $this->view->renderProducts($products, $categories);
-    }
-
-    function showProductsByCategory($id_category, $categories)
-    {
-        $products = $this->model->getProductsCategory($id_category);
         $this->view->renderProducts($products, $categories);
     }
 
@@ -34,7 +29,13 @@ class ProductController
         $product = $this->model->getProduct($id_product);
         $this->view->renderProduct($product);
     }
-
+    
+    function showProductsByCategory($id_category, $categories)
+    {
+        $products = $this->model->getProductsCategory($id_category);
+        $this->view->renderProducts($products, $categories);
+    }
+    
     function showEditProduct($id_product, $categories)
     {
         $this->authHelper->checkAdmin();
@@ -53,19 +54,19 @@ class ProductController
         }
     }
 
-    function deleteProduct($id)
+    function deleteProduct($id_producto)
     {
         $this->authHelper->checkAdmin();
-        $this->model->deleteProductFromDB($id);
+        $this->model->deleteProductFromDB($id_producto);
         header("Location: " . BASE_URL . "products");
     }
 
-    function updateProduct($id)
+    function updateProduct($id_producto)
     {
         $this->authHelper->checkAdmin();
         if (isset($_POST['marca']) && isset($_POST['modelo']) && isset($_POST['precio']) && isset($_POST['id_categoria'])) {
             if (!empty($_POST['marca']) && !empty($_POST['modelo']) && !empty($_POST['precio']) && !empty($_POST['id_categoria'])) {
-                $this->model->updateProduct($_POST['marca'], $_POST['modelo'], $_POST['precio'], $_POST['id_categoria'], $id);
+                $this->model->updateProduct($_POST['marca'], $_POST['modelo'], $_POST['precio'], $_POST['id_categoria'], $id_producto);
                 header("Location: " . BASE_URL . "products");
             }
         }

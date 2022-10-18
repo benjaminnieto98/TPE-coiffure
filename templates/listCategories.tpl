@@ -1,12 +1,12 @@
 {include file="header.tpl" title="Categorias"}
 
 <div class="row">
-    {if $userRol == 2} 
+    {if $userRol == 2}
         <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 py-4 h-100 p-5 text-bg-dark rounded-3">
             <h2>Añadir categoria</h2>
             <form action="addCategory" method="POST">
-                <div class="form-floating mb-1">
-                    <input type="text" class="form-control" name="categoria" placeholder="Categoria" autofocus />
+                <div class="form-floating text-dark mb-1">
+                    <input type="text" class="form-control" name="nombre" placeholder="Categoria" autofocus />
                     <label for="categoria">Categoria</label>
                 </div>
                 <div class="d-grid gap-2">
@@ -33,11 +33,11 @@
             <tbody>
                 {foreach from=$categories item=$category}
                     <tr>
-                        <th>{$category->nombre}</th>
-                        <th><a href="category/{$category->id_categoria}">+</a></th>
+                        <td>{$category->nombre}</td>
+                        <td><a href="category/{$category->id_categoria}">+</a></td>
                         {if $userRol == 2}
-                            <th><a href="editCategory/{$category->id_categoria}">+</a></th>
-                            <th><a href="deleteCategory/{$category->id_categoria}">x</a></th>
+                            <td><a href="editCategory/{$category->id_categoria}">+</a></td>
+                            <td><a href="deleteCategory/{$category->id_categoria}">x</a></td>
                         {/if}
                     </tr>
                 {/foreach}

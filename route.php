@@ -126,7 +126,6 @@ switch ($params[0]) {
         $userController->deleteUser($params[1]);
     break;
 
-
     default:
         $userController->showError();
     break;

@@ -9,7 +9,7 @@ class CategoryController
     private $view;
     private $authHelper;
 
-    public function __construct()
+    function __construct()
     {
         $this->model = new CategoryModel();
         $this->view = new CategoryView();
