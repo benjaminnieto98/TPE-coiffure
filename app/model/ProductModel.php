@@ -57,10 +57,10 @@ class ProductModel
     }
 
     //ACTUALIZA LOS DATOS DE UN PRODUCTO
-    function updateProduct($id_product, $marca, $modelo, $precio, $id_categoria)
+    function updateProduct($marca, $modelo, $precio, $id_categoria, $id_producto)
     {
         $sentence = $this->db->prepare("UPDATE productos SET marca=?, modelo=?, precio=?, id_categoria=? WHERE id_producto=?");
-        $sentence->execute(array($marca, $modelo, $precio, $id_categoria, $id_product));
+        $sentence->execute(array($marca, $modelo, $precio, $id_categoria, $id_producto));
     }
 
     //ELIMINA EL PRODUCTO, YA POR DECISIÓN LA CLAVE FORÁNEA ESTA CONFIGURADA CON "ON DELETE CASCADE"

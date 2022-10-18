@@ -14,7 +14,6 @@
                 </div>
             </form>
             <small>*Si se elimina una categoria se perderan todos los productos asociados</small>
-
         </div>
     {/if}
     <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8 py-4 h-100 p-5">
