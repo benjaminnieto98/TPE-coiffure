@@ -13,8 +13,8 @@ class AuthHelper
     function checkAdmin()
     {
         $this->checkLoggedIn();
-        if ($this->getRol() < 2)
-            header("Location: " . BASE_URL . "notAdmin");
+        if ($this->getRol() != 2)
+            header("Location: " . BASE_URL . "logIn");
     }
 
     //DEVUELVE EL VALOR DEL ROL DE USUARIO:

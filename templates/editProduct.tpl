@@ -7,7 +7,7 @@
             <input type="text" class="form-control" name="modelo" value="{$product->modelo}" autofocus />
             <div class="input-group">
                 <span class="input-group-text">$</span>
-                <input type="text" class="form-control" aria-label="Amount" value="{$product->precio}">
+                <input type="text" class="form-control" name="precio" aria-label="Amount" value="{$product->precio}">
             </div>
             <div class="form-floating mb-1">
                 <select name="id_categoria" class="form-select">

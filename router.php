@@ -10,7 +10,7 @@ if(!empty($_GET['action']))
     $action = $_GET['action'];
 else
     $action = 'home';
-
+    
 $params = explode('/', $action);
 $userController = new UserController();
 $productController = new ProductController();
@@ -49,10 +49,6 @@ switch ($params[0]) {
     break;
 
     case 'notAdmin':
-        $userController->showError("Se necesitan privilegios de administrador");
-    break;
-
-    case 'notAdmin':
         $mensaje = "Se necesitan privilegios de administrador";
         $userController->showError($mensaje);
     break;
@@ -76,7 +72,7 @@ switch ($params[0]) {
         $categoryController->deleteCategory($params[1]);
     break;
 
-    //REDIRIGE AL TPL PARA EDITAR LA CATEGORIA SELECCIONADO
+    //REDIRIGE AL TPL PARA EDITAR LA CATEGORIA SELECCIONADA
     case 'editCategory':
         $categoryController->showEditCategory($params[1]);
     break;
@@ -92,7 +88,7 @@ switch ($params[0]) {
         break;
 
     case 'product':
-        $productController->showProduct($params[1]);
+        $productController->showProduct($params[1],);
         break;
 
     //AGREGA EL PRODUCTO A LA BD

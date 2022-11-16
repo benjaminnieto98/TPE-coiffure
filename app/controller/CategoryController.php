@@ -59,16 +59,22 @@ class CategoryController
     function updateCategory($id_categoria)
     {
         $this->authHelper->checkAdmin();
-        if (isset($_POST['nombre']) && !empty($_POST['nombre'])) {
-            $this->model->updateCategoryToDB($id_categoria, $_POST['nombre']);
-            header("Location: " . BASE_URL . "categories");
-        }
+        if ($_SESSION['rol'] == 2) {
+            if (isset($_POST['nombre']) && !empty($_POST['nombre'])) {
+                $this->model->updateCategoryToDB($id_categoria, $_POST['nombre']);
+                header("Location: " . BASE_URL . "categories");
+            }
+        } else 
+        header("Location: " . BASE_URL . "logIn");
     }
 
     function deleteCategory($id_category)
     {
         $this->authHelper->checkAdmin();
-        $this->model->deleteCategory($id_category);
-        header("Location: " . BASE_URL . "categories");
+        if ($_SESSION['rol'] == 2) {
+            $this->model->deleteCategory($id_category);
+            header("Location: " . BASE_URL . "categories");
+        } else 
+        header("Location: " . BASE_URL . "logIn");
     }
 }

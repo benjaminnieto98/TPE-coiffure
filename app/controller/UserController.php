@@ -1,7 +1,7 @@
 <?php
 require_once "app/model/UserModel.php";
-require_once "app/helpers/AuthHelper.php";
 require_once "app/view/UserView.php";
+require_once "app/helpers/AuthHelper.php";
 
 class UserController
 {
